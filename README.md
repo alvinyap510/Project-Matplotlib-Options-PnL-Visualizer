@@ -28,7 +28,7 @@ To run:
 python main.py
 ```
 
-## Key Concepts
+## Key Concepts Beforehand
 
 - Options Trading
 
