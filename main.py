@@ -35,12 +35,19 @@ PLOT_RANGE = 0.05
 # ]
 
 # # Insurance
-CURRENT_SPOT_PRICE = 1974
+# CURRENT_SPOT_PRICE = 1974
+# CURRENT_OPTION_POSITIONS = [
+#     {'type': 'Call', 'action': 'sell', 'strike': 1965, 'premium': 54, 'quantity': 1},
+#     {'type': 'Put', 'action': 'sell', 'strike': 1990, 'premium': 44, 'quantity': 1},
+#     {'type': 'Put', 'action': 'buy', 'strike': 1930, 'premium': 16, 'quantity': 1},
+#     {'type': 'Call', 'action': 'buy', 'strike': 2020, 'premium': 17.50, 'quantity': 1}
+# ]
+
+
+CURRENT_SPOT_PRICE = 1980
 CURRENT_OPTION_POSITIONS = [
-    {'type': 'Call', 'action': 'sell', 'strike': 1965, 'premium': 54, 'quantity': 1},
-    {'type': 'Put', 'action': 'sell', 'strike': 1990, 'premium': 44, 'quantity': 1},
-    {'type': 'Put', 'action': 'buy', 'strike': 1930, 'premium': 16, 'quantity': 1},
-    {'type': 'Call', 'action': 'buy', 'strike': 2020, 'premium': 17.50, 'quantity': 1}
+    {'type': 'Call', 'action': 'sell', 'strike': 1965, 'premium': 50, 'quantity': 1},
+    {'type': 'Put', 'action': 'sell', 'strike': 1990, 'premium': 36, 'quantity': 1},
 ]
 
 
