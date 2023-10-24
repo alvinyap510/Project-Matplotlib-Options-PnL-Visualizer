@@ -5,7 +5,7 @@ for given multiple options in hand.
 
 import matplotlib.pyplot as plt
 
-PLOT_RANGE = 0.05
+PLOT_RANGE = 0.15
 
 # CURRENT_SPOT_PRICE = 1978
 # CURRENT_OPTION_POSITIONS = [
@@ -44,10 +44,20 @@ PLOT_RANGE = 0.05
 # ]
 
 
-CURRENT_SPOT_PRICE = 1980
+# CURRENT_SPOT_PRICE = 17032
+# CURRENT_OPTION_POSITIONS = [
+#     {'type': 'Call', 'action': 'sell', 'strike': 16800, 'premium': 480, 'quantity': 1},
+#     {'type': 'Put', 'action': 'sell', 'strike': 17200, 'premium': 273, 'quantity': 1},
+#     {'type': 'Call', 'action': 'buy', 'strike': 17200, 'premium': 0, 'quantity': 1},
+
+# ]
+
+CURRENT_SPOT_PRICE = 138
 CURRENT_OPTION_POSITIONS = [
-    {'type': 'Call', 'action': 'sell', 'strike': 1965, 'premium': 50, 'quantity': 1},
-    {'type': 'Put', 'action': 'sell', 'strike': 1990, 'premium': 36, 'quantity': 1},
+    {'type': 'Call', 'action': 'sell', 'strike': 138, 'premium': 5.5, 'quantity': 1},
+    {'type': 'Put', 'action': 'sell', 'strike': 138, 'premium': 5, 'quantity': 1},
+    # {'type': 'Call', 'action': 'buy', 'strike': 180, 'premium': 2.34, 'quantity': 1},
+    # {'type': 'Put', 'action': 'buy', 'strike': 160, 'premium': 1.55, 'quantity': 1},
 ]
 
 
