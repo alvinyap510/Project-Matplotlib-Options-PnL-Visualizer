@@ -5,7 +5,7 @@ for given multiple options in hand.
 
 import matplotlib.pyplot as plt
 
-PLOT_RANGE = 0.15
+PLOT_RANGE = 0.05
 
 # CURRENT_SPOT_PRICE = 1978
 # CURRENT_OPTION_POSITIONS = [
@@ -52,12 +52,47 @@ PLOT_RANGE = 0.15
 
 # ]
 
-CURRENT_SPOT_PRICE = 138
+# CURRENT_SPOT_PRICE = 138
+# CURRENT_OPTION_POSITIONS = [
+#     {'type': 'Call', 'action': 'sell', 'strike': 138, 'premium': 5.5, 'quantity': 1},
+#     {'type': 'Put', 'action': 'sell', 'strike': 138, 'premium': 5, 'quantity': 1},
+#     # {'type': 'Call', 'action': 'buy', 'strike': 180, 'premium': 2.34, 'quantity': 1},
+#     # {'type': 'Put', 'action': 'buy', 'strike': 160, 'premium': 1.55, 'quantity': 1},
+# ]
+
+CURRENT_SPOT_PRICE = 1972
 CURRENT_OPTION_POSITIONS = [
-    {'type': 'Call', 'action': 'sell', 'strike': 138, 'premium': 5.5, 'quantity': 1},
-    {'type': 'Put', 'action': 'sell', 'strike': 138, 'premium': 5, 'quantity': 1},
-    # {'type': 'Call', 'action': 'buy', 'strike': 180, 'premium': 2.34, 'quantity': 1},
-    # {'type': 'Put', 'action': 'buy', 'strike': 160, 'premium': 1.55, 'quantity': 1},
+    {'type': 'Put', 'action': 'sell', 'strike': 1985, 'premium': 41, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1960,
+        'premium': 44.84, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1965,
+             'premium': 48.50, 'quantity': 10},
+    {'type': 'Put', 'action': 'sell', 'strike': 1990,
+     'premium': 38.18, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1970,
+     'premium': 43.28, 'quantity': 10},
+    {'type': 'Put', 'action': 'sell', 'strike': 1995,
+     'premium': 41.70, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1990,
+     'premium': 27.62, 'quantity': 10},
+    {'type': 'Put', 'action': 'sell', 'strike': 1950,
+     'premium': 19.80, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1975,
+     'premium': 31.99, 'quantity': 10},
+    {'type': 'Put', 'action': 'sell', 'strike': 1950,
+     'premium': 20.47, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1965,
+     'premium': 41.32, 'quantity': 10},
+    {'type': 'Put', 'action': 'sell', 'strike': 1985,
+     'premium': 33.33, 'quantity': 10},
+    {'type': 'Call', 'action': 'sell', 'strike': 1960,
+     'premium': 43.11, 'quantity': 20},
+    {'type': 'Put', 'action': 'sell', 'strike': 1960,
+     'premium': 21.28, 'quantity': 20},
+    {'type': 'Call', 'action': 'sell', 'strike': 1980,
+     'premium': 33.60, 'quantity': 20},
+    {'type': 'Put', 'action': 'sell', 'strike': 1955,
+     'premium': 18.24, 'quantity': 20},
 ]
 
 
@@ -69,9 +104,9 @@ def calculate_premium_received(option_positions):
     premium = 0
     for option in option_positions:
         if option['action'] == 'sell':
-            premium += option['premium']
+            premium += option['premium'] * option['quantity']
         elif option['action'] == 'buy':
-            premium -= option['premium']
+            premium -= option['premium'] * option['quantity']
     return premium
 
 
@@ -98,9 +133,9 @@ def total_pnl(upfront_premium, price_point, options):
                 option_value = option['strike'] - price_point
         # Determine whether user sold the option or purchased the option
         if option['action'] == 'buy':
-            pnl += option_value
+            pnl += option_value * option['quantity']
         elif option['action'] == 'sell':
-            pnl -= option_value
+            pnl -= option_value * option['quantity']
     return pnl
 
 
