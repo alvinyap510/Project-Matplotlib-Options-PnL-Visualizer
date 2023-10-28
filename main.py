@@ -23,6 +23,9 @@ class Option:
     def __getitem__(self, key):
         return getattr(self, key)
 
+    def __setitem__(self, key, value):
+        setattr(self, key, value)
+
 
 class Futures:
     '''
@@ -37,8 +40,8 @@ class Futures:
     def __getitem__(self, key):
         return getattr(self, key)
 
-
-PLOT_RANGE = 0.05
+    def __setitem__(self, key, value):
+        setattr(self, key, value)
 
 # CURRENT_SPOT_PRICE = 1978
 # CURRENT_OPTION_POSITIONS = [
@@ -128,7 +131,10 @@ PLOT_RANGE = 0.05
 #      'premium': 18.24, 'quantity': 20},
 # ]
 
-CURRENT_SPOT_PRICE = 1989
+PLOT_RANGE = 0.10
+CURRENT_SPOT_PRICE = 1991
+CALCULATE_DISCOUNT = False
+PREMIUM_DISCOUNT = 10
 CURRENT_OPTION_POSITIONS = [
     Option("Put", "sell", 1985, 41, 10),
     Option("Call", "sell", 1960, 44.84, 10),
@@ -161,8 +167,7 @@ CURRENT_OPTION_POSITIONS = [
 ]
 
 CURRENT_FUTURES_POSITIONS = [
-    Futures("long", 1990, 100),
-    Futures("short", 1960, 100)
+    Futures("long", 1991, 20),
 ]
 
 
@@ -199,6 +204,9 @@ def total_pnl(upfront_premium, price_point, options, futures):
     '''
     pnl = upfront_premium
     for option in options:
+        if CALCULATE_DISCOUNT:
+            pnl -= PREMIUM_DISCOUNT
+
         # Call options
         if option['type'] == 'Call':
             # Determine option value
